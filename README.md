@@ -7,7 +7,7 @@ todo
 ## 网页小工具
 ### 1、英语遮盖自测小工具
 - 样例
-![image-20240515211135499](https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240515211135499.png)
+  ![image-20240515222706331](https://raw.githubusercontent.com/OriKey/picrep/main/img/image-20240515222706331.png)
 - 介绍
   - 一个简单的英语单词遮盖自测小工具，支持导入自测数据和导出数据到粘贴板
 - 工作流
