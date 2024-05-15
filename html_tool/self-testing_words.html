@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>词汇练习</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .reveal {
+            background-color: #000;
+            color: #000;
+            cursor: pointer;
+        }
+        .reveal:hover {
+            background-color: lightgrey;
+        }
+        .revealed {
+            background-color: transparent;
+            color: #000;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<h1>词汇练习</h1>
+<textarea id="data-input" rows="10" cols="50" placeholder="Paste your data here..."></textarea>
+<button onclick="parseAndDisplay()">导入数据</button>
+<button onclick="exportClickedWords()">导出已点击单词</button>
+<table>
+    <tr>
+        <th>英文单词</th>
+        <th>中文含义</th>
+        <th>查看释义次数</th>
+    </tr>
+    <tbody id="vocab-container"></tbody>
+</table>
+
+<script>
+    function parseAndDisplay() {
+        const inputData = document.getElementById('data-input').value;
+        const lines = inputData.split('\n');
+        const container = document.getElementById('vocab-container');
+        container.innerHTML = ''; // 清空现有的内容
+
+        lines.forEach(line => {
+            const parts = line.match(/^([\s\S]*?)([\u4e00-\u9fa5])/);
+            if (parts && parts.length >= 3) {
+                const english = parts[1].trim();
+                const chinese = line.substring(parts.index + parts[1].length).trim(); // 剩余部分为中文含义
+
+                const row = container.insertRow(-1);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+
+                cell1.textContent = english;
+                cell2.innerHTML = `<span class="reveal" onclick="revealDefinition(this)">${chinese}</span>`;
+                cell3.textContent = 0; // 初始化查看次数
+            }
+        });
+    }
+
+    function revealDefinition(element) {
+        if (element.classList.contains('reveal')) {
+            element.classList.remove('reveal');
+            element.classList.add('revealed');
+            const countCell = element.parentNode.nextElementSibling;
+            countCell.textContent = parseInt(countCell.textContent) + 1; // 增加查看次数
+        }
+    }
+
+    function exportClickedWords() {
+        const rows = document.querySelectorAll('#vocab-container tr');
+        let exportData = '';
+
+        rows.forEach(row => {
+            const english = row.cells[0].textContent;
+            const chineseSpan = row.cells[1].querySelector('span');
+            if (chineseSpan && chineseSpan.classList.contains('revealed')) {
+                const chinese = chineseSpan.textContent;
+                exportData += `${english}: ${chinese}\n`;
+            }
+        });
+
+        navigator.clipboard.writeText(exportData).then(() => {
+            alert('已复制到剪切板');
+        }).catch(err => {
+            alert('复制失败');
+            console.error('Failed to copy text: ', err);
+        });
+    }
+</script>
+</body>
+</html>
