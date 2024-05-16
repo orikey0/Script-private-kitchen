@@ -29,3 +29,5 @@ todo
   - 4、自测结束后，点击导出按钮，将自测数据导出到粘贴板
 - 脚本位置
   - [英语遮盖自测小工具](./html_tool/self-testing_words.html)
+- 在线预览
+  - [在线预览](http://htmlpreview.github.io/?https://github.com/orikey0/Script-private-kitchen/blob/master/html_tool/self-testing_words.html)
