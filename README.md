@@ -2,6 +2,18 @@
 平常工作中自己用的一些小脚本/小工具 可能还会有一些使用指南
 ## shell脚本
 todo
+## raycast 脚本
+### 1、输入ipython打开iterm里面的ipython
+- 样例
+  - ![20240516103741.gif](./assets/README-1715827100413.gif)
+- 介绍
+  - 通过raycast输入ipython打开iterm里面的ipython，用到了apple script
+- 工作流
+  - cmd+space打开raycast
+  - 输入ipython 回车
+- 脚本位置
+  - [ipython](./guide/raycast-tool-ipython.md)
+
 ## frame脚手架
 todo
 ## 网页小工具
