@@ -5,7 +5,7 @@ todo
 ## raycast 脚本
 ### 1、输入ipython打开iterm里面的ipython
 - 样例
-  - ![20240516103741.gif](./assets/README-1715827100413.gif)
+  - ![20240516110220](https://raw.githubusercontent.com/OriKey/picrep/main/img/20240516110220.gif)
 - 介绍
   - 通过raycast输入ipython打开iterm里面的ipython，用到了apple script
 - 工作流
