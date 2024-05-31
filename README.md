@@ -31,3 +31,7 @@ todo
   - [英语遮盖自测小工具](./html_tool/self-testing_words.html)
 - 在线预览
   - [在线预览](http://htmlpreview.github.io/?https://github.com/orikey0/Script-private-kitchen/blob/master/html_tool/self-testing_words.html)
+
+## 文章推荐
+### 1、重构
+- [淘宝短视频流工程重构（上）：理论篇](https://mp.weixin.qq.com/s/0afu3oLtOltNnkpCcpIuDA)
